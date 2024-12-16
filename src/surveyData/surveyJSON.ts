@@ -1,4 +1,4 @@
-import { getValidDays } from "../components/Schedule.tsx";
+//import { getValidDays } from "../components/Schedule.tsx";
 
 // export const json = {
 //   title: "DEV WEEKEND Registration Form",
