@@ -51,14 +51,67 @@
 }
 
 :root {
-  --main-color: #d96570 !important; /* Existing main color variable */
-
-  /* SurveyJS Custom Variables */
+  --main-color: #d96570 !important;
   --sjs-bg-color: #1a1a1a;
-  --sjs-text-color: #4285f4; /* Tailwind blue-500 */
-  --sjs-button-bg-color: #4285f4; /* Tailwind blue-500 */
-  --sjs-button-text-color: #fff; /* White */
-  --sjs-button-hover-bg-color: #3367d6; /* Tailwind blue-600 */
+  --sjs-text-color: #4285f4;
+  --sjs-button-bg-color: #4285f4;
+  --sjs-button-text-color: #fff;
+  --sjs-button-hover-bg-color: #3367d6;
+}
+
+.sv_complete_btn {
+  background-color: var(--sjs-button-bg-color) !important;
+  color: var(--sjs-button-text-color) !important;
+  border: none !important;
+  padding: 0.6em 1.2em !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: background-color 0.25s, transform 0.25s !important;
+}
+
+.sv_complete_btn:hover {
+  background-color: var(--sjs-button-hover-bg-color) !important;
+  transform: scale(1.05) !important;
+}
+
+.sv_complete_btn:focus,
+.sv_complete_btn:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgb(66 133 244 / 50%) !important;
+}
+
+.sv_main .sv_q_text_root input,
+.sv_main .sv_q_dropdown_control {
+  background-color: var(--sjs-bg-color) !important;
+  color: var(--sjs-text-color) !important;
+  border: 1px solid var(--sjs-text-color) !important;
+  border-radius: 4px !important;
+  padding: 0.5em !important;
+}
+
+.sv_main .sv_q_text_root input:focus,
+.sv_main .sv_q_dropdown_control:focus {
+  border-color: var(--sjs-button-bg-color) !important;
+  box-shadow: 0 0 0 2px rgb(66 133 244 / 50%) !important;
+}
+
+.sv_main .sv_q_title,
+.sv_main .sv_q_text_root label {
+  color: var(--sjs-text-color) !important;
+  font-weight: 600 !important;
+}
+
+.sv_main .sv_q_required_error {
+  color: #d96570 !important;
+}
+
+.sv_main {
+  background-color: transparent !important;
+}
+
+.sv_qstn {
+  border: none !important;
 }
 
 /* Override SurveyJS Complete Button */
@@ -76,6 +129,11 @@
 .sv_complete_btn:hover {
   background-color: var(--sjs-button-hover-bg-color) !important;
   transform: scale(1.05) !important;
+}
+
+.sv_main .sv_q_text_root input::placeholder {
+  color: var(--sjs-text-color) !important;
+  opacity: 0.6 !important;
 }
 
 .sv_complete_btn:focus,

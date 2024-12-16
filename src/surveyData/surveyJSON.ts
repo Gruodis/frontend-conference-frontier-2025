@@ -1,45 +1,5 @@
 import { getValidDays } from "../components/Schedule.tsx";
 
-// export const json = {
-//   title: "DEV WEEKEND Registration Form",
-//   showProgressBar: "bottom",
-//   pages: [
-//     {
-//       title: "Personal Information",
-//       questions: [
-//         {
-//           type: "text",
-//           name: "name",
-//           title: "Full Name",
-//           isRequired: true,
-//         },
-//         {
-//           type: "text",
-//           name: "email",
-//           title: "Email",
-//           isRequired: true,
-//           validators: [{ type: "email" }],
-//         },
-//         {
-//           type: "text",
-//           name: "phone",
-//           title: "Phone Number",
-//           isRequired: true,
-//           validators: [
-//             {
-//               type: "regex",
-//               text: "Please enter a valid phone number",
-//               regex: "^\\+(?:[0-9] ?){6,14}[0-9]$",
-//             },
-//           ],
-//         },
-//         {
-//           type: "radiogroup",
-//         },
-//       ],
-
-// };
-
 export const json = {
   title: "Frontiers 2025",
   description: "registration ",
