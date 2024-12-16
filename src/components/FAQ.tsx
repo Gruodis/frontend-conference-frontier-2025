@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CSSTransition } from "react-transition-group";
 
 interface FAQ {
   id: number;
@@ -47,12 +48,14 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-16">
+    <section className="py-16 w-full">
       <div className="container mx-auto px-4">
-        <h2 className="mb-8 text-center">Frequently Asked Questions</h2>
-        <div className="space-y-4">
+        <h2 className="heading-secondary-alt mb-8 text-center">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4 w-full">
           {faqs.map((faq: FAQ) => (
-            <div key={faq.id} className="border-b border-gray-200 pb-4">
+            <div key={faq.id} className="pb-4 max-w-[900px] mx-auto">
               <button
                 type="button"
                 className="flex justify-between gap-8 items-center w-full text-left"
@@ -63,9 +66,14 @@ export default function FAQ() {
                   {openIndex === faq.id ? "-" : "+"}
                 </span>
               </button>
-              {openIndex === faq.id && (
-                <p className="mt-2 text-gray-600">{faq.answer}</p>
-              )}
+              <CSSTransition
+                in={openIndex === faq.id}
+                timeout={300}
+                classNames="faq"
+                unmountOnExit
+              >
+                <p className="mt-2 text-gray-400">{faq.answer}</p>
+              </CSSTransition>
             </div>
           ))}
         </div>

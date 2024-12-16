@@ -48,7 +48,7 @@ export default function Speakers() {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-6xl font-bold mb-8 text-center">
+        <h2 className="heading-secondary-alt font-bold mb-8 text-center">
           Featured Speakers
         </h2>
         <div className="flex flex-wrap justify-center gap-4 md:gap-8">
@@ -64,8 +64,8 @@ export default function Speakers() {
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{speaker.name}</h3>
-                <p className="text-gray-600 mb-4">{speaker.role}</p>
-                <p className="text-gray-800">{speaker.bio}</p>
+                <p className="text-gray-300 mb-4">{speaker.role}</p>
+                <p className="text-gray-500">{speaker.bio}</p>
               </div>
             </div>
           ))}

@@ -22,6 +22,7 @@ export default function SurveyForm() {
     formData.append("entry.160944922", surveyData.name);
     formData.append("entry.1070458393", surveyData.surrname);
     formData.append("entry.324176906", surveyData.email);
+    formData.append("entry.202297744", surveyData.ticket);
 
     // Send data to Google Forms
     fetch(import.meta.env.VITE_GOOGLE_FORM_URL, {
@@ -40,8 +41,13 @@ export default function SurveyForm() {
   });
 
   return (
-    <section id="register" className="w-full max-w-[900px] py-16">
-      <Survey model={survey} />
+    <section id="register" className="px-4 w-full max-w-[900px] py-16">
+      <h2 className="heading-secondary font-medium mb-8 text-center">
+        Register
+      </h2>
+      <div className="overflow-hidden bg-gray-950 border border-[#d96570] rounded-lg">
+        <Survey model={survey} />
+      </div>
     </section>
   );
 }
