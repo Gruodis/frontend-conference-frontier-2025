@@ -1,4 +1,4 @@
-//import { getValidDays } from "../components/Schedule.tsx";
+import { getValidDays } from "../components/Schedule.tsx";
 
 // export const json = {
 //   title: "DEV WEEKEND Registration Form",
@@ -56,6 +56,7 @@ export const json = {
           startWithNewLine: false,
           placeholder: "Name",
           isRequired: true,
+          requiredErrorText: "Name is required",
         },
         {
           type: "text",
@@ -63,6 +64,7 @@ export const json = {
           placeholder: "Surrname",
           isRequired: true,
           startWithNewLine: false,
+          requiredErrorText: "Surrname is required",
         },
 
         {
@@ -71,17 +73,18 @@ export const json = {
           placeholder: "Email",
           isRequired: true,
           inputType: "email",
+          requiredErrorText: "Email is required",
         },
-        // {
-        //   type: "dropdown",
-        //   name: "ticket",
-        //   startWithNewLine: false,
-        //   isRequired: true,
-        //   requiredErrorText: "Please choose a ticket",
-        //   choices: getValidDays(),
-        //   placeholder: "Choose a ticket",
-        //   allowClear: false,
-        // },
+        {
+          type: "dropdown",
+          name: "ticket",
+          startWithNewLine: false,
+          isRequired: true,
+          requiredErrorText: "Please choose a ticket",
+          choices: getValidDays(),
+          placeholder: "Choose a ticket",
+          allowClear: false,
+        },
         // {
         //   type: "checkbox",
         //   name: "termsAndConditions",
