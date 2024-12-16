@@ -19,22 +19,16 @@ export default function SurveyForm() {
 
     // Map survey data to Google Form fields
     const formData = new FormData();
-    formData.append("entry.160944922", surveyData.name); // Replace with actual entry ID
-    formData.append("entry.1070458393", surveyData.surrname); // Replace with actual entry ID
-    formData.append("entry.324176906", surveyData.email); // Replace with actual entry ID
-    // formData.append("entry.5566778899", surveyData.ticket); // Replace with actual entry ID
-    // formData.append("entry.6677889900", surveyData.termsAndConditions); // Replace with actual entry ID
+    formData.append("entry.160944922", surveyData.name);
+    formData.append("entry.1070458393", surveyData.surrname);
+    formData.append("entry.324176906", surveyData.email);
 
-    // Send data to Google Form
-    // fetch("https://docs.google.com/forms/d/e/1FAIpQLSdnXKU8FqmJqoM2pR0nx6B5trvkhhzzikMKGCnYmBxwh2xp6g/viewform?usp=pp_url", {
-    fetch(
-      "https://docs.google.com/forms/d/e/1FAIpQLSdnXKU8FqmJqoM2pR0nx6B5trvkhhzzikMKGCnYmBxwh2xp6g/formResponse",
-      {
-        method: "POST",
-        mode: "no-cors",
-        body: formData,
-      }
-    )
+    // Send data to Google Forms
+    fetch(import.meta.env.VITE_GOOGLE_FORM_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData,
+    })
       .then(() => {
         console.log("Survey results sent to Google Forms");
       })
