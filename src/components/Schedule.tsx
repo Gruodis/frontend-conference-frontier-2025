@@ -122,7 +122,7 @@ export const schedule: Schedule[] = [
   },
   {
     id: "day3",
-    dayDate: "2024-12-16",
+    dayDate: "2026-12-31",
     dayTitle: "Day 3 - Closing Ceremony and Awards",
     events: [
       {
@@ -232,18 +232,22 @@ export default function Schedule() {
                     className={`flex gap-4 ${
                       areAllEventsEnded(day.dayDate, day.events)
                         ? "opacity-50"
-                        : hasOngoingEvents(day.dayDate, day.events)
-                        ? "text-[rgb(66_133_244)]"
                         : ""
                     }`}
                   >
-                    <div className="self-center">
-                      <img src="/check.svg" className="w-4" alt="" />
+                    <div className="flex-shrink-0 pt-4 w-[16px] h-[16px] flex items-center justify-center">
+                      <img
+                        src="/check.svg"
+                        className="w-[16px] h-[16px]"
+                        alt="Check Icon"
+                      />
                     </div>
-                    <div className="w-24 font-bold whitespace-nowrap">
-                      {event.from} - {event.to}
+                    <div className="flex flex-wrap">
+                      <div className="w-24 font-bold whitespace-nowrap">
+                        {event.from} - {event.to}
+                      </div>
+                      <div>{event.title}</div>
                     </div>
-                    <div>{event.title}</div>
                   </li>
                 ))}
               </ul>
