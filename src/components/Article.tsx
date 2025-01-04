@@ -31,7 +31,10 @@ export default function Article({
 }: ArticleProps): JSX.Element {
   console.log(cover);
   return (
-    <article className="article flex max-w-[800px] gap-4 py-4 my-4">
+    <article
+      className="article flex max-w-[800px] gap-4 p-4 my-4 
+    border border-gray-700"
+    >
       <div>
         <img
           src={`http://localhost:1337${cover.formats.thumbnail.url}`}
