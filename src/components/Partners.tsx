@@ -20,7 +20,7 @@ export default function Partners() {
         <svg
           data-v-6b2490ed=""
           xmlns="http://www.w3.org/2000/svg"
-          className="svg-primary blur-[150px] absolute -top-1/2  !z-10 !block !opacity-50 max-w-[200px] lg:max-w-full"
+          className="svg-primary blur-[150px] absolute -top-1/2 -z-10 !block !opacity-50 max-w-[200px] lg:max-w-full"
           width="600"
           height="300"
           viewBox="0 0 600 300"
