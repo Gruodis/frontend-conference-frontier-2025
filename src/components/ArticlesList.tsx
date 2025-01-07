@@ -12,7 +12,7 @@ import { ArticleProps, ApiResponse } from "../interfaces/articles";
  * <ArticlesList />
  */
 
-export default function ArticlesList() {
+export default function ArticlesList(): JSX.Element {
   const [articles, setArticles] = useState<ArticleProps[]>([]);
 
   // State to handle loading status
@@ -29,7 +29,9 @@ export default function ArticlesList() {
     try {
       // Replace with your actual API endpoint
       const response = await fetch(
-        "http://localhost:1337/api/articles?populate=cover"
+        //"http://localhost:1337/api/articles?populate=cover&populate=category&populate=blocks"
+
+        "http://localhost:1337/api/articles?populate[cover][populate]=*&populate[blocks][populate]=*&populate[category][populate]=*"
       );
 
       if (!response.ok) {
@@ -37,7 +39,7 @@ export default function ArticlesList() {
       }
 
       const result: ApiResponse = await response.json();
-      //   console.log(result.data);
+      //console.log(result.data);
 
       // Update the articles state with the fetched data
       setArticles(result.data);
@@ -73,6 +75,8 @@ export default function ArticlesList() {
     return <p>Error: {error}</p>;
   }
 
+  console.log(articles.map((article: ArticleProps) => article));
+
   /**
    * Render the list of articles.
    */
@@ -86,7 +90,7 @@ export default function ArticlesList() {
         <p>No articles available.</p>
       ) : (
         <div className="articles-container">
-          {articles.map((article) => (
+          {articles.map((article: ArticleProps) => (
             <Article key={article.id} {...article} />
           ))}
         </div>

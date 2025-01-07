@@ -28,8 +28,9 @@ export default function Article({
   slug,
   publishedAt,
   cover,
+  category,
 }: ArticleProps): JSX.Element {
-  console.log(cover);
+  //console.log(category);
   return (
     <article
       className="article flex max-w-[800px] gap-4 p-4 my-4 
@@ -45,6 +46,9 @@ export default function Article({
       <div>
         {/* Article Title */}
         <h2 className="article-title">{title}</h2>
+        <code className="text-green-700">
+          Category: {category ? category.name : "Uncategorized"}
+        </code>
 
         {/* Article Description */}
         <p className="article-description">{description}</p>

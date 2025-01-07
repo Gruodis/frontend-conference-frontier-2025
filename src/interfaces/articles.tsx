@@ -12,6 +12,16 @@
  * @property {string} publishedAt - ISO timestamp when the article was published.
  */
 
+interface Categories {
+  id: number;
+  name: string;
+  description?: string;
+  slug: string;
+  publishedAt: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 interface ImageFormat {
   name: string;
   hash: string;
@@ -54,6 +64,77 @@ interface CoverImage {
   publishedAt: string;
 }
 
+interface FileAttributes {
+  name: string;
+  alternativeText: string;
+  caption: string;
+  width: number;
+  height: number;
+  formats: ImageFormats;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: null;
+  provider: string;
+  provider_metadata: null;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
+interface BaseBlock {
+  id: number;
+  __component: string;
+}
+
+interface RichTextBlock extends BaseBlock {
+  __component: "shared.rich-text";
+  body: string;
+}
+
+interface QuoteBlock extends BaseBlock {
+  __component: "shared.quote";
+  title: string;
+  body: string;
+}
+
+interface MediaBlock extends BaseBlock {
+  __component: "shared.media";
+  file: {
+    id: number;
+    documentId: string;
+    name: string;
+    alternativeText: string;
+    caption: string;
+    width: number;
+    height: number;
+    formats: ImageFormats;
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+    previewUrl: null;
+    provider: string;
+    provider_metadata: null;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+  };
+}
+
+interface SliderBlock extends BaseBlock {
+  __component: "shared.slider";
+  files: Array<{
+    id: number;
+    documentId: string;
+    attributes: FileAttributes;
+  }>;
+}
+type Block = RichTextBlock | QuoteBlock | MediaBlock | SliderBlock;
+
 export interface ArticleProps {
   id: number;
   documentId: string;
@@ -64,6 +145,8 @@ export interface ArticleProps {
   updatedAt: string;
   publishedAt: string;
   cover: CoverImage;
+  category: Categories;
+  blocks: Block[];
 }
 
 /**
